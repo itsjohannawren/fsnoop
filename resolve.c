@@ -158,7 +158,7 @@ void exeByPID (int pid, char* dst, ssize_t len) {
 		// No, Are we using the cache?
 		if (optCache) {
 			// Gimme the cash!
-			pidCacheGet (pid, filePath, PATH_MAX);
+			pidCacheGet (pid, filePath, PATH_MAX, NULL, 0);
 			// Did the cache have anything?
 			if (strlen (filePath) == 0) {
 				// No :-(
@@ -175,7 +175,7 @@ void exeByPID (int pid, char* dst, ssize_t len) {
 		// Yes!
 		strncpy (dst, filePath, len - 1);
 		// Set the PID->exe in the cache
-		pidCacheSet (pid, filePath);
+		pidCacheSet (pid, filePath, NULL);
 	}
 }
 void cmdlineByPID (int pid, char* dst, ssize_t len) {

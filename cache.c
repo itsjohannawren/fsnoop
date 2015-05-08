@@ -36,6 +36,10 @@ void pidCacheFree (struct cacheEntry* entry) {
 int pidCacheSet (int pid, char* exe, char* cmdline) {
 	struct cacheEntry* entry;
 
+	if (PID_CACHE == NULL) {
+		return (0);
+	}
+
 	for (entry = PID_CACHE->next; entry != NULL; entry = entry->next) {
 		if (entry->pid == pid) {
 			break;
@@ -96,6 +100,10 @@ int pidCacheGet (int pid, char* exe, ssize_t exeLen, char* cmdline, ssize_t cmdl
 	}
 	if (cmdline != NULL) {
 		memset (cmdline, 0, cmdlineLen);
+	}
+
+	if (PID_CACHE == NULL) {
+		return (0);
 	}
 
 	for (entry = PID_CACHE->next; entry != NULL; entry = entry->next) {
