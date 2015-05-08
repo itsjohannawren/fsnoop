@@ -51,7 +51,7 @@ clean:
 	else \
 		echo "$(CC) $(CC_FLAGS) -o $@ $<"; \
 	fi
-	@$(CC) $(CC_FLAGS) -o $@ $< 2>&1 | sed -e 's/^/    /'
+	@$(CC) $(CC_FLAGS) -o $@ $< 2>&1 | sed -e 's/^/    > /'
 
 $(EXE_FILES): $(OBJ_FILES)
 	@if [ "$(MAKE_HIDE_CMD)" = "yes" ]; then \
@@ -59,4 +59,4 @@ $(EXE_FILES): $(OBJ_FILES)
 	else \
 		echo "$(CC) $(LD_FLAGS) $(LD_LIBS) $(EXE_$@_FLAGS) $(EXE_$@_LIBS) -o $@ $(EXE_$@_OBJS)"; \
 	fi
-	@$(CC) $(LD_FLAGS) $(LD_LIBS) $(EXE_$@_FLAGS) $(EXE_$@_LIBS) -o $@ $(EXE_$@_OBJS) 2>&1 | sed -e 's/^/    /'
+	@$(CC) $(LD_FLAGS) $(LD_LIBS) $(EXE_$@_FLAGS) $(EXE_$@_LIBS) -o $@ $(EXE_$@_OBJS) 2>&1 | sed -e 's/^/    > /'

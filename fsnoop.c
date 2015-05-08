@@ -1,5 +1,3 @@
-// gcc --static -o snoop snoop.c
-
 #include <errno.h>
 #include <fcntl.h>
 #include <limits.h>
@@ -8,7 +6,6 @@
 #include <string.h>
 #include <sys/fanotify.h>
 #include <sys/stat.h>
-
 #include <unistd.h>
 
 #include "resolve.h"
