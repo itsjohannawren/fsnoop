@@ -29,7 +29,8 @@ OBJ_FILES=$(SRC_FILES:.c=.o)
 EXE_FILES=fsnoop
 
 # Per executable linker flags and libs
-EXE_fsnoop_FLAGS=-Bstatic -static
+EXE_fsnoop_FLAGS=
+# -Bstatic -static
 EXE_fsnoop_LIBS=
 # Executable objects
 EXE_fsnoop_OBJS=fsnoop.o resolve.o cache.o dll.o
