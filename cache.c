@@ -12,7 +12,7 @@ int pidCacheInit () {
 	// We got the space, right?
 	if (PID_CACHE == NULL) {
 		// We didn't
-		return (errno);
+		return (-1);
 	}
 	// Clear the root node
 	memset (PID_CACHE, 0, sizeof (struct cacheEntry));
@@ -49,7 +49,7 @@ int pidCacheSet (int pid, char* exe, char* cmdline) {
 	if (entry == NULL) {
 		entry = malloc (sizeof (struct cacheEntry));
 		if (entry == NULL) {
-			return (errno);
+			return (-1);
 		}
 		memset (entry, 0, sizeof (struct cacheEntry));
 		entry->pid = pid;
@@ -71,7 +71,7 @@ int pidCacheSet (int pid, char* exe, char* cmdline) {
 			if (entry->exe == NULL) {
 				dllRemove (PID_CACHE, entry);
 				pidCacheFree (entry);
-				return (errno);
+				return (-1);
 			}
 			strcpy (entry->exe, exe);
 		}
@@ -83,7 +83,7 @@ int pidCacheSet (int pid, char* exe, char* cmdline) {
 			if (entry->cmdline == NULL) {
 				dllRemove (PID_CACHE, entry);
 				pidCacheFree (entry);
-				return (errno);
+				return (-1);
 			}
 			strcpy (entry->cmdline, cmdline);
 		}
