@@ -5,11 +5,11 @@
 #endif
 
 struct dll {
-	struct dll * prev, * next;
+	struct dll *prev, *next;
 };
 
-int dllAppend (void * list, void * element) {
-	struct dll * _list, * _element;
+int dllAppend (void *list, void *element) {
+	struct dll *_list, *_element;
 	_list = (struct dll *) list;
 	_element = (struct dll *) element;
 
@@ -30,8 +30,8 @@ int dllAppend (void * list, void * element) {
 	return (0);
 }
 
-int dllPrepend (void * list, void * element) {
-	struct dll * _list, * _element;
+int dllPrepend (void *list, void *element) {
+	struct dll *_list, *_element;
 	_list = (struct dll *) list;
 	_element = (struct dll *) element;
 
@@ -52,9 +52,8 @@ int dllPrepend (void * list, void * element) {
 	return (0);
 }
 
-int dllInsert (void * list, void * after, void * element) {
-	struct dll * _list, * _after, * _element;
-	_list = (struct dll *) list;
+int dllInsert (void *list, void *after, void *element) {
+	struct dll *_after, *_element;
 	_after = (struct dll *) after;
 	_element = (struct dll *) element;
 
@@ -73,8 +72,8 @@ int dllInsert (void * list, void * after, void * element) {
 	return (0);
 }
 
-int dllRemove (void * list, void * element) {
-	struct dll * _list, * _element;
+int dllRemove (void *list, void *element) {
+	struct dll *_list, *_element;
 	_list = (struct dll *) list;
 	_element = (struct dll *) element;
 
@@ -97,8 +96,8 @@ int dllRemove (void * list, void * element) {
 	return (0);
 }
 
-int dllRemoveFirst (void * list) {
-	struct dll * _list;
+int dllRemoveFirst (void *list) {
+	struct dll *_list;
 	_list = (struct dll *) list;
 
 	if ((_list->prev != NULL) && (_list->next != NULL)) {
@@ -108,8 +107,8 @@ int dllRemoveFirst (void * list) {
 	return (0);
 }
 
-int dllRemoveLast (void * list) {
-	struct dll * _list;
+int dllRemoveLast (void *list) {
+	struct dll *_list;
 	_list = (struct dll *) list;
 
 	if ((_list->prev != NULL) && (_list->next != NULL)) {
