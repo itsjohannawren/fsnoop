@@ -372,6 +372,8 @@ void usage (int exit_status) {
 	//printf ("   --open-exec_perm        File asking to be opened with intent to execute\n");
 	//printf ("   --access-perm           File or directory asking to be accessed (read)\n");
 	printf ("\n");
+	printf ("   --all              -a   All supported events\n");
+	printf ("\n");
 	exit (exit_status);
 }
 
@@ -380,6 +382,7 @@ int parseArgs (const int argc, const char **argv) {
 		// General options
 		{"help", no_argument, 0, 'h'},
 		{"verbose", no_argument, 0, 'v'},
+		{"all", no_argument, 0, 'a'},
 		// Caching control
 		{"cache", no_argument, &optCache, 1},
 		{"no-cache", no_argument, &optCache, 0},
@@ -439,6 +442,24 @@ int parseArgs (const int argc, const char **argv) {
 
 			case 'v':
 				optVerbose++;
+				break;
+
+			case 'a':
+				optMaskAccess = 1;
+				optMaskModify = 1;
+				optMaskClose = 1;
+				optMaskCloseWrite = 1;
+				optMaskCloseNowrite = 1;
+				optMaskOpen = 1;
+				optMaskOpenExec = 1;
+				optMaskAttrib = 1;
+				optMaskCreate = 1;
+				optMaskDelete = 1;
+				optMaskDeleteSelf = 1;
+				optMaskMove = 1;
+				optMaskMovedFrom = 1;
+				optMaskMovedTo = 1;
+				optMaskOndir = 1;
 				break;
 
 			case 'c':
