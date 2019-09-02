@@ -474,9 +474,6 @@ int parseArgs (const int argc, const char **argv) {
 			//	printf ("option -c with value `%s'\n", optarg);
 			//	break;
 
-			case '?':
-				break;
-
 			default:
 				usage (1);
 				break;
