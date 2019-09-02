@@ -93,6 +93,8 @@ int lprintf (const int level, const char *format, ...) {
 		printed += printf ("\n");
 	}
 
+	va_end (arguments);
+
 	return (printed);
 }
 
