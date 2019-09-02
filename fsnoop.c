@@ -421,7 +421,7 @@ int parseArgs (const int argc, const char **argv) {
 	while (1) {
 		opt_index = 0;
 
-		opt = getopt_long (argc, (char * const *) argv, "hvcC", long_opts, &opt_index);
+		opt = getopt_long (argc, (char * const *) argv, "hvcCa", long_opts, &opt_index);
 		if (opt == -1) {
 			break;
 		}
@@ -474,9 +474,6 @@ int parseArgs (const int argc, const char **argv) {
 			//	printf ("option -c with value `%s'\n", optarg);
 			//	break;
 
-			case '?':
-				break;
-
 			default:
 				usage (1);
 				break;
@@ -498,7 +495,8 @@ int parseArgs (const int argc, const char **argv) {
 			memset (optPaths [path_index], 0, strlen (argv [optind]) + 1);
 			strcpy (optPaths [path_index], argv [optind]);
 		}
-	}
+	} else
+		usage(1);
 
 	return (0);
 }
