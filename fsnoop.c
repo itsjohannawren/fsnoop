@@ -495,7 +495,8 @@ int parseArgs (const int argc, const char **argv) {
 			memset (optPaths [path_index], 0, strlen (argv [optind]) + 1);
 			strcpy (optPaths [path_index], argv [optind]);
 		}
-	}
+	} else
+		usage(1);
 
 	return (0);
 }
